@@ -33,6 +33,11 @@ namespace Watcher_GUI
         public ObservableCollection<Symbol> WatchList { get; set; } = new ObservableCollection<Symbol>();
 
         /// <summary>
+        /// Symbol Alerts Created By Watcher
+        /// </summary>
+        public ObservableCollection<AlertsViewModel> Alerts { get; set; } = new ObservableCollection<AlertsViewModel>();
+
+        /// <summary>
         /// Total Symbols registered in database
         /// </summary>
         public ObservableCollection<Symbol> Symbols { get; set; }

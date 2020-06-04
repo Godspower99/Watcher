@@ -131,18 +131,79 @@
             </Grid.RowDefinitions>
 
             <!--Alerts List-->
-            <ItemsControl Grid.Row="0">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <!--Alerts Design-->
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            <Border Grid.Row="0"
+                    Background="FloralWhite"
+                    Padding="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!--Title-->
+                    <TextBlock Text="ALERTS"
+                               HorizontalAlignment="Stretch"
+                               TextAlignment="Center"
+                               FontSize="16"
+                               Margin="0 5 0 5"
+                               />
+                    <!--Time-->
+                    <TextBlock Grid.Row="1"
+                               HorizontalAlignment="Left"
+                               TextAlignment="Center"
+                               FontSize="15"
+                               Margin="0 2 5 3"
+                               >
+                        <Run Text="&#xf017;" 
+                             FontSize="15"
+                             FontFamily="{StaticResource FontAwesome}"
+                             Foreground="Gray"
+                             />
+                        <Run Text="12:54:03 AM" 
+                             FontSize="15"
+                             Foreground="Black"
+                             x:Name="currenttime"
+                             />
+                    </TextBlock>
+
+                    <!--Number Of Alerts-->
+                    <TextBlock Grid.Row="1"                 
+                               HorizontalAlignment="Right"
+                               TextAlignment="Center"
+                               FontSize="15"
+                               Margin="0 2 5 3"
+                               >
+                          <Run Text="&#xf77f; " 
+                             FontSize="15"
+                             FontFamily="{StaticResource FontAwesome}"
+                             Foreground="DarkGoldenrod"
+                             />
+                        <Run Text="5" 
+                             FontSize="15"
+                             Foreground="Black"
+                             x:Name="alertscount"
+                             />
+                    </TextBlock>
+
+                    <!--Alerts-->
+                    <ScrollViewer Grid.Row="2">
+                        <ItemsControl x:Name="alertslist">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <local:AlertsListItem/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+           
+                </Grid>
+            </Border>
 
             <!--Open Trades-->
             <ItemsControl Grid.Row="1">

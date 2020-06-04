@@ -19,8 +19,11 @@ namespace Watcher_GUI
                                (string)value == "down" ? "\uf354" : "\uf128";
 
                 case "TD" :
-                        return (string)value == "up" ? "\uf201" :
-                               (string)value == "down" ? "\uf201" : "\uf128";
+                    // Trend Chart Line Icon
+                    //return (string)value == "up" ? "\uf201" :
+                    //     (string)value == "down" ? "\uf201" : "\uf128";
+                    return (string)value == "up" ? "\uf357" :
+                            (string)value == "down" ? "\uf354" : "\uf128";
                 case "RE" :
                     return (string)value == "up" ? "\uf2fb" :
                             (string)value == "down" ? "\uf2fb" : "\uf128";

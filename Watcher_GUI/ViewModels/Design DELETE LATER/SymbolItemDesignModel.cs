@@ -10,9 +10,9 @@ namespace Watcher_GUI
     {
         public static SymbolItemDesignModel SymbolDesignModel { get; set; } = new SymbolItemDesignModel {
             LongTermMasterDirection = "up",
-            LongTermTrend = "up",
-            LongTermRenkoBarType = "up",
-            ShortTermMasterDirection = "up",
+            LongTermTrend = "down",
+            LongTermRenkoBarType = "down",
+            ShortTermMasterDirection = "down",
             ShortTermTrend = "up",
             ShortTermRenkoBarType = "up"
         };

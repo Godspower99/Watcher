@@ -330,6 +330,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\AlertsListItem.xaml.cs">
+      <DependentUpon>AlertsListItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\DatabaseSymbolsItem.xaml.cs">
       <DependentUpon>DatabaseSymbolsItem.xaml</DependentUpon>
     </Compile>
@@ -355,11 +358,18 @@
     </Compile>
     <Compile Include="Migrations\DatabaseContextModelSnapshot.cs" />
     <Compile Include="Value Converters\BaseValueConverter.cs" />
+    <Compile Include="Value Converters\TextToColorConverter.cs" />
     <Compile Include="Value Converters\TextToIconConverter.cs" />
+    <Compile Include="ViewModels\AlertsViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\Design DELETE LATER\AlertItemDesignModel.cs" />
     <Compile Include="ViewModels\Design DELETE LATER\SymbolItemDesignModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\WatcherViewModel.cs" />
+    <Page Include="Controls\AlertsListItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\DatabaseSymbolsItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

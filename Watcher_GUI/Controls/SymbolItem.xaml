@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Watcher_GUI"
              mc:Ignorable="d" 
-             Height="80" 
+             Height="90" 
              Width="420"
              Margin="0 0 0 3"
              d:DataContext="{x:Static local:SymbolItemDesignModel.SymbolDesignModel}">
@@ -69,7 +69,7 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="1.2*"/>
                             </Grid.RowDefinitions>
                             
                             <!--LT Title-->
@@ -79,7 +79,7 @@
                                        FontWeight="Bold"
                                        TextAlignment="Left"
                                        Background="Gold">
-                                <Run Text="LT   "/>
+                                <Run Text=" LT   "/>
                                 <Run Text="{Binding LongTermMasterTimeFrame}" ToolTip="LT MD"/>
                                 <Run Text="{Binding LongTermTrendTimeFrame}" ToolTip="LT TD"/>
                             </TextBlock>
@@ -103,7 +103,9 @@
                                        FontSize="15"
                                        FontWeight="SemiBold"
                                        Margin="0 0 40 0"
-                                       Foreground="Green"/>
+                                       Foreground="{Binding LongTermMasterDirection,
+                                                Converter={local:TextToColorConverter},
+                                                ConverterParameter=MD}"/>
 
                             <!--Trend Direction Data-->
                             <TextBlock Text="TD"
@@ -124,7 +126,9 @@
                                        FontSize="15"
                                        FontWeight="SemiBold"
                                        Margin="0 0 40 0"
-                                       Foreground="Red"/>
+                                       Foreground="{Binding LongTermTrend,
+                                                Converter={local:TextToColorConverter},
+                                                ConverterParameter=TD}"/>
 
                             <!--Renko Update Data-->
                             <TextBlock
@@ -144,10 +148,26 @@
                                        Grid.Row="3"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       FontSize="15"
+                                       FontSize="10"
                                        FontWeight="Bold"
-                                       Margin="0 0 40 0"
-                                       Foreground="Green"/>
+                                       Margin="0 -10 40 0"
+                                       Foreground="{Binding LongTermRenkoBarType,
+                                                Converter={local:TextToColorConverter},
+                                                ConverterParameter=RE}"/>
+                            
+                            <TextBlock Text="{Binding LongTermRenkoBarType,
+                                                Converter={local:TextToIconConverter},
+                                                ConverterParameter=RE}"
+                                       FontFamily="{StaticResource FontAwesome}"
+                                       Grid.Row="3"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       FontSize="10"
+                                       FontWeight="Bold"
+                                       Margin="0 7 30 0"
+                                       Foreground="{Binding LongTermRenkoBarType,
+                                                Converter={local:TextToColorConverter},
+                                                ConverterParameter=RE}"/>
                         </Grid>
                     </Grid>
                 </Border>
@@ -162,7 +182,7 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="1.1*"/>
                             </Grid.RowDefinitions>
 
                             <!--Close Button-->
@@ -173,6 +193,7 @@
                                     VerticalAlignment="Center"
                                     FontSize="10"
                                     Width="20"
+                                    Margin="0 0 0 2"
                                     x:Name="close"
                                     Click="Close_Click"
                                     />
@@ -184,9 +205,9 @@
                                        FontWeight="Bold"
                                        TextAlignment="Left"
                                        Background="Gold">
-                                <Run Text="ST   "/>
-                                <Run Text="{Binding ShortTermMasterTimeFrame}" ToolTip="LT MD"/>
-                                <Run Text="{Binding ShortTermTrendTimeFrame}" ToolTip="LT TD"/>
+                                <Run Text=" ST   "/>
+                                <Run Text="{Binding ShortTermMasterTimeFrame}" ToolTip="ST MD"/>
+                                <Run Text="{Binding ShortTermTrendTimeFrame}" ToolTip="ST TD"/>
                             </TextBlock>
 
                             <!--Master Direction Data-->
@@ -208,7 +229,9 @@
                                        FontSize="15"
                                        FontWeight="SemiBold"
                                        Margin="0 0 40 0"
-                                       Foreground="Green"/>
+                                       Foreground="{Binding ShortTermMasterDirection,
+                                                Converter={local:TextToColorConverter},
+                                                ConverterParameter=MD}"/>
 
                             <!--Trend Direction Data-->
                             <TextBlock Text="TD"
@@ -229,7 +252,9 @@
                                        FontSize="15"
                                        FontWeight="SemiBold"
                                        Margin="0 0 40 0"
-                                       Foreground="Red"/>
+                                       Foreground="{Binding ShortTermTrend,
+                                                Converter={local:TextToColorConverter},
+                                                ConverterParameter=TD}"/>
 
                             <!--Renko Update Data-->
                             <TextBlock Grid.Row="3"
@@ -237,7 +262,7 @@
                                        VerticalAlignment="Center"
                                        FontSize="15"
                                        FontWeight="SemiBold"
-                                       Margin="10 0 0 0">
+                                      Margin="10 0 0 0">
                                 <Run Text="Re"/><Run Text="{Binding ShortTermRenkoBarSize}"/>
                             </TextBlock>
 
@@ -248,10 +273,26 @@
                                        Grid.Row="3"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       FontSize="15"
+                                       FontSize="10"
                                        FontWeight="Bold"
-                                       Margin="0 0 40 0"
-                                       Foreground="Green"/>
+                                        Margin="0 7 40 0"
+                                       Foreground="{Binding ShortTermRenkoBarType,
+                                                Converter={local:TextToColorConverter},
+                                                ConverterParameter=RE}"/>
+                            
+                            <TextBlock Text="{Binding ShortTermRenkoBarType,
+                                                Converter={local:TextToIconConverter},
+                                                ConverterParameter=RE}"
+                                       FontFamily="{StaticResource FontAwesome}"
+                                       Grid.Row="3"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       FontSize="10"
+                                       FontWeight="Bold"
+                                        Margin="0 0 30 10"
+                                       Foreground="{Binding ShortTermRenkoBarType,
+                                                Converter={local:TextToColorConverter},
+                                                ConverterParameter=RE}"/>
                         </Grid>
                     </Grid>
                 </Border>

@@ -151,6 +151,17 @@ namespace Watcher_GUI
         }
 
         /// <summary>
+        /// Add item to Alerts List
+        /// </summary>
+        /// <param name="alert"></param>
+        public static void Alert(AlertsViewModel alert)
+        {
+            GetService<WatcherViewModel>().Alerts.Add(alert);
+            GetService<MainWindow>().alertslist.ItemsSource = GetService<WatcherViewModel>().Alerts.Reverse(); ;
+            GetService<MainWindow>().alertscount.Text = GetService<WatcherViewModel>().Alerts.Count.ToString();
+        }
+
+        /// <summary>
         /// Removes a symbol from watchlist using its name
         /// </summary>
         /// <param name="symbol"></param>
@@ -159,6 +170,20 @@ namespace Watcher_GUI
             var symbolToDelete = GetService<WatcherViewModel>().WatchList.FirstOrDefault(x => x.SymbolName == symbol);
             GetService<WatcherViewModel>().WatchList.Remove(symbolToDelete);
             GetService<MainWindow>().watchlist.ItemsSource = GetService<WatcherViewModel>().WatchList;
+
+            // TODO ::: STOP DEVICES FROM SENDING TELEMETRY
+        }
+
+        /// <summary>
+        /// Removes a symbol from watchlist using its name
+        /// </summary>
+        /// <param name="symbol"></param>
+        public static void RemoveFromAlertsList(string alertID)
+        {
+            var alertToDelete = GetService<WatcherViewModel>().Alerts.FirstOrDefault(x => x.AlertID == alertID);
+            GetService<WatcherViewModel>().Alerts.Remove(alertToDelete);
+            GetService<MainWindow>().alertslist.ItemsSource = GetService<WatcherViewModel>().Alerts.Reverse();
+            GetService<MainWindow>().alertscount.Text = GetService<WatcherViewModel>().Alerts.Count.ToString();
 
             // TODO ::: STOP DEVICES FROM SENDING TELEMETRY
         }
@@ -179,6 +204,5 @@ namespace Watcher_GUI
             App.GetService<SymbolsWindow>().shortrenkodevicename.Text = sym.ShortRenkoChartDeviceName;
             App.GetService<SymbolsWindow>().shortrenkoconnectionstring.Text = sym.ShortRenkoChartConnectionString;
         }
-
     }
 }

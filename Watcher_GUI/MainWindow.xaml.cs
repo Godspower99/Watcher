@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Azure.Devices.Provisioning;
 using Microsoft.Azure.Devices.Provisioning.Service;
@@ -30,6 +31,8 @@ namespace Watcher_GUI
             InitializeComponent();
             this.DataContext = this;
             watchlist.ItemsSource = App.GetService<WatcherViewModel>().WatchList;
+            alertslist.ItemsSource = App.GetService<WatcherViewModel>().Alerts.Reverse();
+            alertscount.Text = "0";
         }
         #endregion
 
@@ -81,6 +84,8 @@ namespace Watcher_GUI
         /// <param name="e"></param>
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
+            var alert = new AlertsViewModel { SymbolName = DateTime.Now.ToLongTimeString(), Title = "Testing" };
+            App.Alert(alert);
         }
 
         #endregion
