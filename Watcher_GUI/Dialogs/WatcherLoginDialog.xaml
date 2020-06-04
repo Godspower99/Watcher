@@ -1,0 +1,214 @@
+﻿<Window x:Class="Watcher_GUI.WatcherLoginDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Watcher_GUI"
+        mc:Ignorable="d"
+        WindowState="Normal"
+        WindowStyle="None"
+        ResizeMode="NoResize"    
+        Title="WatcherLoginDialog" 
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        Height="370" 
+        Width="410">
+    <Border Padding="5"
+            CornerRadius="10"
+            Background="AliceBlue"
+            BorderBrush="Black"
+            BorderThickness="2">
+        <StackPanel>
+            <!--Title-->
+            <Border Background="Gold"
+                    CornerRadius="10 10 0 0"
+                    BorderThickness="1"
+                    BorderBrush="DarkGray"
+                    Margin="0 0 0 5"
+                    >
+                <TextBlock Text="LOGIN TO IoT HUB"
+                       HorizontalAlignment="Center"
+                       FontSize="15"
+                       FontWeight="Bold"
+                       Margin="2"
+                       />
+            </Border>
+
+            <!--IoT HUB Name-->
+            <Border 
+                    BorderThickness="1"
+                    BorderBrush="DarkGray"
+                    Margin="5"
+                    Background="LightGray"
+                    >
+                <StackPanel>
+                    <!--HEADING-->
+                    <TextBlock Text="IoT Hub Name"
+                                HorizontalAlignment="Stretch"
+                               TextAlignment="Center"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                                Margin="0 0 0 2.5"
+                       />
+                    <!--VARIABLE-->
+                    <TextBox Text="{Binding IoTHubName,UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="15"
+                             VerticalAlignment="Bottom"
+                             TextAlignment="Center"
+                             BorderThickness="1 0 1 1"
+                             x:Name="hubname"
+                         />
+                </StackPanel>
+            </Border>
+
+            <!--Event Hub Endpoint-->
+            <Border 
+                    BorderThickness="1"
+                    BorderBrush="DarkGray"
+                    Margin="5"
+                    Background="LightGray"
+                    >
+                <StackPanel>
+                    <!--HEADING-->
+                    <TextBlock Text="Event Hub Endpoint"
+                                HorizontalAlignment="Stretch"
+                               TextAlignment="Center"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                                Margin="0 0 0 2.5"
+                       />
+                    <!--VARIABLE-->
+                    <TextBox Text="{Binding EventHubEndpoint,
+                                     Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="15"
+                             VerticalAlignment="Bottom"
+                             TextAlignment="Center"
+                             BorderThickness="1 0 1 1"
+                             x:Name="endpoint"
+                         />
+                </StackPanel>
+            </Border>
+
+            <!--Event Hub Path-->
+            <Border 
+                    BorderThickness="1"
+                    BorderBrush="DarkGray"
+                    Margin="5"
+                    Background="LightGray"
+                    >
+                <StackPanel>
+                    <!--HEADING-->
+                    <TextBlock Text="Event Hub Path"
+                                HorizontalAlignment="Stretch"
+                               TextAlignment="Center"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                                Margin="0 0 0 2.5"
+                       />
+                    <!--VARIABLE-->
+                    <TextBox Text="{Binding EventHubPath,
+                                    Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="15"
+                             VerticalAlignment="Bottom"
+                             TextAlignment="Center"
+                             BorderThickness="1 0 1 1"
+                             x:Name="path"
+                         />
+                </StackPanel>
+            </Border>
+
+            <!--Event Hub Key Name-->
+            <Border 
+                    BorderThickness="1"
+                    BorderBrush="DarkGray"
+                    Margin="5"
+                    Background="LightGray"
+                    >
+                <StackPanel>
+                    <!--HEADING-->
+                    <TextBlock Text="Event Hub Key Name"
+                                HorizontalAlignment="Stretch"
+                               TextAlignment="Center"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                                Margin="0 0 0 2.5"
+                       />
+                    <!--VARIABLE-->
+                    <TextBox Text="{Binding EventHubKeyName,
+                                    Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="15"
+                             VerticalAlignment="Bottom"
+                             TextAlignment="Center"
+                             BorderThickness="1 0 1 1"
+                             x:Name="keyname"
+                         />
+                </StackPanel>
+            </Border>
+
+            <!--Event Hub Primay Key-->
+            <Border 
+                    BorderThickness="1"
+                    BorderBrush="DarkGray"
+                    Margin="5"
+                    Background="LightGray"
+                    >
+                <StackPanel>
+                    <!--HEADING-->
+                    <TextBlock Text="Event Hub Primay Key"
+                                HorizontalAlignment="Stretch"
+                               TextAlignment="Center"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                                Margin="0 0 0 2.5"
+                       />
+                    <!--VARIABLE-->
+                    <TextBox Text="{Binding EventHubPrimayKey,
+                                    Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="15"
+                             VerticalAlignment="Bottom"
+                             TextAlignment="Center"
+                             BorderThickness="1 0 1 1"
+                             x:Name="key"
+                         />
+                </StackPanel>
+            </Border>
+
+            <!--BUTTONS-->
+            <Grid Height="50"
+                  Margin="30 10 30 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--LOGIN BUTTON-->
+                <Button Content="LOGIN"
+                        Margin="15 2"
+                        Background="Green"
+                        FontSize="15"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        FontStyle="Italic"
+                        x:Name="login"
+                        Click="Login_Click"
+                        IsDefault="True"
+                        />
+
+                <!--Cancel BUTTON-->
+                <Button Grid.Column="1" 
+                        Content="CANCEL"
+                        Margin="15 2"
+                        Background="Red"
+                        FontSize="15"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        FontStyle="Italic"
+                        x:Name="cancel"
+                        Click="Cancel_Click"
+                        IsCancel="True"
+                        />
+            </Grid>
+        </StackPanel>
+    </Border>
+</Window>

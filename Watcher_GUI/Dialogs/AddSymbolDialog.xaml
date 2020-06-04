@@ -1,0 +1,287 @@
+﻿<Window x:Class="Watcher_GUI.AddSymbolDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Watcher_GUI"
+        mc:Ignorable="d"
+        WindowState="Normal"
+        WindowStyle="None"
+        ResizeMode="NoResize"    
+        Title="WatcherLoginDialog" 
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        Height="470" 
+        Width="410">
+    
+    <Border Padding="5"
+            CornerRadius="10"
+            Background="AliceBlue"
+            BorderBrush="Black"
+            BorderThickness="2">
+        <StackPanel>
+            <!--Title-->
+            <Border Background="Gold"
+                    CornerRadius="10 10 0 0"
+                    BorderThickness="1"
+                    BorderBrush="DarkGray"
+                    Margin="0 0 0 5"
+                    >
+                <TextBlock Text="ADD SYMBOL TO DATABASE"
+                       HorizontalAlignment="Center"
+                       FontSize="15"
+                       FontWeight="Bold"
+                       Margin="2"
+                       />
+            </Border>
+
+            <!--Symbol Name-->
+            <Border 
+                    BorderThickness="1"
+                    BorderBrush="DarkGray"
+                    Margin="5"
+                    Background="LightGray"
+                    >
+                <StackPanel>
+                    <!--HEADING-->
+                    <TextBlock Text="Symbol Name"
+                                HorizontalAlignment="Stretch"
+                               TextAlignment="Center"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                                Margin="0 0 0 2.5"
+                       />
+                    <!--VARIABLE-->
+                    <TextBox Text="{Binding SymbolName,UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="15"
+                             VerticalAlignment="Bottom"
+                             TextAlignment="Center"
+                             BorderThickness="1 0 1 1"
+                             x:Name="symbolname"
+                         />
+                </StackPanel>
+            </Border>
+
+            <!--IoT HUB Name-->
+            <Border 
+                    BorderThickness="1"
+                    BorderBrush="DarkGray"
+                    Margin="5"
+                    Background="LightGray"
+                    >
+                <StackPanel>
+                    <!--HEADING-->
+                    <TextBlock Text="Time Chart Device Name"
+                                HorizontalAlignment="Stretch"
+                               TextAlignment="Center"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                                Margin="0 0 0 2.5"
+                       />
+                    <!--VARIABLE-->
+                    <TextBox Text="{Binding TimeChartDeviceName,UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="15"
+                             VerticalAlignment="Bottom"
+                             TextAlignment="Center"
+                             BorderThickness="1 0 1 1"
+                             x:Name="timename"
+                         />
+                </StackPanel>
+            </Border>
+
+            <!--Event Hub Endpoint-->
+            <Border 
+                    BorderThickness="1"
+                    BorderBrush="DarkGray"
+                    Margin="5"
+                    Background="LightGray"
+                    >
+                <StackPanel>
+                    <!--HEADING-->
+                    <TextBlock Text="Time Chart Connection String"
+                                HorizontalAlignment="Stretch"
+                               TextAlignment="Center"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                                Margin="0 0 0 2.5"
+                       />
+                    <!--VARIABLE-->
+                    <TextBox Text="{Binding TimeChartConnectionString,
+                                     Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="15"
+                             VerticalAlignment="Bottom"
+                             TextAlignment="Center"
+                             BorderThickness="1 0 1 1"
+                             x:Name="timeconnection"
+                         />
+                </StackPanel>
+            </Border>
+
+            <!--Event Hub Path-->
+            <Border 
+                    BorderThickness="1"
+                    BorderBrush="DarkGray"
+                    Margin="5"
+                    Background="LightGray"
+                    >
+                <StackPanel>
+                    <!--HEADING-->
+                    <TextBlock Text="Long Renko Device Name"
+                                HorizontalAlignment="Stretch"
+                               TextAlignment="Center"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                                Margin="0 0 0 2.5"
+                       />
+                    <!--VARIABLE-->
+                    <TextBox Text="{Binding LongRenkoChartDeviceName,
+                                    Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="15"
+                             VerticalAlignment="Bottom"
+                             TextAlignment="Center"
+                             BorderThickness="1 0 1 1"
+                             x:Name="longrenkoname"
+                         />
+                </StackPanel>
+            </Border>
+
+            <!--Event Hub Key Name-->
+            <Border 
+                    BorderThickness="1"
+                    BorderBrush="DarkGray"
+                    Margin="5"
+                    Background="LightGray"
+                    >
+                <StackPanel>
+                    <!--HEADING-->
+                    <TextBlock Text="Long Renko Connection String"
+                                HorizontalAlignment="Stretch"
+                               TextAlignment="Center"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                                Margin="0 0 0 2.5"
+                       />
+                    <!--VARIABLE-->
+                    <TextBox Text="{Binding LongRenkoChartConnectionString,
+                                    Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="15"
+                             VerticalAlignment="Bottom"
+                             TextAlignment="Center"
+                             BorderThickness="1 0 1 1"
+                             x:Name="longrenkoconnection"
+                         />
+                </StackPanel>
+            </Border>
+
+            <!--Event Hub Primay Key-->
+            <Border 
+                    BorderThickness="1"
+                    BorderBrush="DarkGray"
+                    Margin="5"
+                    Background="LightGray"
+                    >
+                <StackPanel>
+                    <!--HEADING-->
+                    <TextBlock Text="Short Renko Device Name"
+                                HorizontalAlignment="Stretch"
+                               TextAlignment="Center"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                                Margin="0 0 0 2.5"
+                       />
+                    <!--VARIABLE-->
+                    <TextBox Text="{Binding ShortRenkoChartDeviceName,
+                                    Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="15"
+                             VerticalAlignment="Bottom"
+                             TextAlignment="Center"
+                             BorderThickness="1 0 1 1"
+                             x:Name="shortrenkoname"
+                         />
+                    
+
+                </StackPanel>
+            </Border>
+
+            <!--Event Hub Primay Key-->
+            <Border 
+                    BorderThickness="1"
+                    BorderBrush="DarkGray"
+                    Margin="5"
+                    Background="LightGray"
+                    >
+                <StackPanel>
+                    <!--HEADING-->
+                    <TextBlock Text="Short Renko Connection String"
+                                HorizontalAlignment="Stretch"
+                               TextAlignment="Center"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                               Margin="0 0 0 2.5"
+                       />
+                    <!--VARIABLE-->
+                    <TextBox Text="{Binding ShortRenkoChartConnectionString,
+                                    Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="15"
+                             VerticalAlignment="Bottom"
+                             TextAlignment="Center"
+                             BorderThickness="1 0 1 1"
+                             x:Name="shortrenkoconnection"
+                         />
+                </StackPanel>
+            </Border>
+
+
+            <!--BUTTONS-->
+            <Grid Height="50"
+                  Margin="30 10 30 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--LOGIN BUTTON-->
+                <Button Content="SAVE"
+                        Margin="5 2"
+                        Background="Green"
+                        FontSize="15"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        FontStyle="Italic"
+                        x:Name="add"
+                        Click="Add_Click"
+                        IsDefault="True"
+                        />
+
+                <!--Cancel BUTTON-->
+                <Button Grid.Column="2" 
+                        Content="CANCEL"
+                        Margin="5 2"
+                        Background="Red"
+                        FontSize="15"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        FontStyle="Italic"
+                        x:Name="cancel"
+                        Click="Cancel_Click"
+                        IsCancel="True"
+                        />
+                <!--LOGIN BUTTON-->
+                <Button Content="Test"
+                        Margin="5 2"
+                        Grid.Column="1"
+                        Background="LightGray"
+                        FontSize="15"
+                        FontWeight="Bold"
+                        Foreground="Black"
+                        FontStyle="Italic"
+                        x:Name="test"
+                        Click="Test_Click"
+                        IsDefault="True"
+                        />
+            </Grid>
+        </StackPanel>
+    </Border>
+</Window>

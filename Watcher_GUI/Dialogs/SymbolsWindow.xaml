@@ -1,0 +1,201 @@
+﻿<Window x:Class="Watcher_GUI.SymbolsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Watcher_GUI"
+        mc:Ignorable="d"
+        WindowState="Normal"
+        WindowStyle="None"
+        ResizeMode="NoResize"    
+        Title="SymbolsDialog" 
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        Height="450" 
+        Width="450">
+    
+    <!--Outer Border-->
+    <Border Background="White"
+            Padding="5"
+            BorderThickness="2"
+            BorderBrush="Black"
+            >
+            <!--Inner Grid-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!--Buttons-->
+                <Border BorderBrush="Black"
+                        BorderThickness="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Button Content="ADD"
+                            Margin="5"
+                                x:Name="add"
+                                Click="Add_Click"/>
+                        <Button Grid.Column="1"
+                            Content="Close"
+                            Margin="5"
+                                x:Name="close"
+                                Click="Close_Click"/>
+                    </Grid>
+                </Border>
+
+                <!--Symbols List-->
+                <ScrollViewer Grid.Row="1">
+                    <ItemsControl x:Name="symbols"
+                                  >
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <local:DatabaseSymbolsItem Width="200"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Grid>
+            
+            <!--Symbol Description-->
+            <Border Padding="5"
+                    BorderThickness="1"
+                    BorderBrush="Black"
+                    Grid.Column="1">
+                <ScrollViewer Margin="1 0 0 0">
+                    <StackPanel>
+                        
+                        <!--Symbol Name-->
+                        <TextBlock Text=""
+                           FontSize="18"
+                           FontWeight="UltraBold"
+                           TextAlignment="Center"
+                           Margin="5 10"
+                           x:Name="symbolname"/>
+
+                        <!--Time Chart Details-->
+                        <TextBlock Text="----- Time Chart ------"
+                               FontSize="13"
+                               FontStyle="Italic"
+                               FontWeight="SemiBold"
+                               TextAlignment="Center"
+                               Margin="2"/>
+                        <!--device name-->
+                        <TextBlock Text=">>Device Name>>"
+                               FontSize="13"
+                               FontStyle="Normal"
+                               TextAlignment="Left"
+                               Margin="0 2"/>
+                        <TextBlock Text=""
+                               FontSize="13"
+                               FontWeight="SemiBold"
+                               TextAlignment="Left"
+                               Background="LightGray"
+                               TextWrapping="WrapWithOverflow"
+                               x:Name="timedevicename"/>
+
+                        <!--Connection String-->
+                        <TextBlock Text=">>Connection String>>"
+                               FontSize="13"
+                               FontStyle="Normal"
+                               TextAlignment="Left"
+                               Margin="0 5 0 0"/>
+                        <TextBlock Text=""
+                                   x:Name="timeconnectionstring"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                               TextAlignment="Left"
+                                   Background="LightGray"
+                               TextWrapping="WrapWithOverflow"/>
+
+                        <!--Long Renko Chart Details-->
+                        <TextBlock Text="----- Long Renko ------"
+                               FontSize="13"
+                               FontStyle="Italic"
+                               FontWeight="SemiBold"
+                               TextAlignment="Center"
+                               Margin="2 10 2 0"/>
+                        <!--device name-->
+                        <TextBlock Text=">>Device Name>>"
+                               FontSize="13"
+                               FontStyle="Normal"
+                               TextAlignment="Left"
+                               Margin="0 2"/>
+                        <TextBlock Text=""
+                               FontSize="13"
+                                   x:Name="longrenkodevicename"
+                               FontWeight="SemiBold"
+                                   Background="LightGray"
+                               TextAlignment="Left"
+                               TextWrapping="WrapWithOverflow"/>
+
+                        <!--Connection String-->
+                        <TextBlock Text=">>Connection String>>"
+                               FontSize="13"
+                               FontStyle="Normal"
+                               TextAlignment="Left"
+                               Margin="0 2"/>
+                        <TextBlock Text=""
+                               FontSize="12"
+                                   x:Name="longrenkoconnectionstring"
+                               FontWeight="SemiBold"
+                               TextAlignment="Left"
+                                   Background="LightGray"
+                               TextWrapping="WrapWithOverflow"/>
+
+                        <!--Short Chart Details-->
+                        <TextBlock Text="----- Short Renko ------"
+                               FontSize="13"
+                               FontStyle="Italic"
+                               FontWeight="SemiBold"
+                               TextAlignment="Center"
+                               Margin="2 10 2 0"/>
+                        <!--device name-->
+                        <TextBlock Text=">>Device Name>>"
+                               FontSize="13"
+                               FontStyle="Normal"
+                               TextAlignment="Left"
+                               Margin="0 2"/>
+                        <TextBlock Text=""
+                                   x:Name="shortrenkodevicename"
+                               FontSize="13"
+                               FontWeight="SemiBold"
+                                   Background="LightGray"
+                               TextAlignment="Left"
+                               TextWrapping="WrapWithOverflow"/>
+
+                        <!--Connection String-->
+                        <TextBlock Text=">>Connection String>>"
+                               FontSize="13"
+                               FontStyle="Normal"
+                               TextAlignment="Left"
+                               Margin="0 2"/>
+                        <TextBlock Text=""
+                               FontSize="12"
+                                   x:Name="shortrenkoconnectionstring"
+                                Background="LightGray"
+                               FontWeight="SemiBold"
+                               TextAlignment="Left"
+                               TextWrapping="WrapWithOverflow"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+    </Border>
+</Window>
